@@ -268,83 +268,6 @@ nav.scrolled {
 }
 
 
-/* Vision - Split Screen Problem/Solution */
-.vision-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
-    gap: 4rem;
-}
-
-.vision-left, .vision-right {
-    position: relative;
-}
-
-.vision-sticky {
-    position: sticky;
-    top: 20vh;
-    padding: 4rem;
-}
-
-.vision-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    font-weight: 600;
-    display: block;
-    margin-bottom: 2rem;
-}
-
-.vision-sticky h2 {
-    font-family: 'Space Grotesk', monospace;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
-    margin-bottom: 4rem;
-}
-
-.problem-metrics, .solution-metrics {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.problem-metric, .solution-metric {
-    border-left: 2px solid;
-    padding-left: 2rem;
-    transition: all 0.3s;
-}
-
-.problem-metric {
-    border-color: var(--secondary);
-}
-
-.solution-metric {
-    border-color: var(--primary);
-}
-
-.metric-value {
-    font-family: 'Space Grotesk', monospace;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.metric-value.red {
-    color: var(--secondary);
-}
-
-.metric-value.cyan {
-    color: var(--primary);
-}
-
-.metric-label {
-    color: var(--text-dim);
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
 
 /* Approach Section with Parallax */
 .approach-section {
@@ -1228,16 +1151,6 @@ footer p {
     
     .hero, section {
         padding: 4rem 2rem;
-    }
-    
-    .vision-split {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .vision-sticky {
-        position: static;
-        padding: 2rem;
     }
     
     .approach-section {

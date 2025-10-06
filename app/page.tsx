@@ -155,19 +155,6 @@ export default function Home() {
           ease: 'power3.out'
         });
         
-        // Vision metrics animation
-        gsap.utils.toArray('.problem-metric, .solution-metric').forEach((metric: any, i: number) => {
-          gsap.from(metric, {
-            opacity: 0,
-            x: -30,
-            duration: 0.8,
-            delay: i * 0.2,
-            scrollTrigger: {
-              trigger: metric,
-              start: 'top 80%'
-            }
-          });
-        });
         
         // Approach section - Parallax & Animations
         // Parallax background layers
@@ -367,8 +354,7 @@ export default function Home() {
         <nav id="nav">
           <div className="nav-content">
             <a href="#" className="logo">ALAKAZAM</a>
-            <ul className="nav-links">
-              <li><a href="#vision">Vision</a></li>
+                <ul className="nav-links">
               <li><a href="#technology">Technology</a></li>
               <li><a href="#anamnesis">Anamnesis</a></li>
               <li><a href="#contact">Contact</a></li>
@@ -390,8 +376,7 @@ export default function Home() {
               <span className="word gradient-text">creation</span>
             </h1>
             <p className="hero-subtitle">
-              AI-native world models. Synthetic training data. Local deployment. 
-              Making radical experimentation economically viable.
+              World models based games running on consumer hardware—making radical experimentation economically viable.
             </p>
             <div className="hero-cta">
               <a href="#anamnesis" className="btn-magnetic">Discover Anamnesis</a>
@@ -402,52 +387,8 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Vision - Split Screen Problem/Solution */}
-        <section id="vision">
-          <div className="vision-split">
-            <div className="vision-left">
-              <div className="vision-sticky">
-                <span className="vision-label">The Problem</span>
-                <h2>The game industry<br />is trapped</h2>
-                <div className="problem-metrics">
-                  <div className="problem-metric">
-                    <div className="metric-value red">$500K+</div>
-                    <div className="metric-label">Prototype cost</div>
-                  </div>
-                  <div className="problem-metric">
-                    <div className="metric-value red">6+ months</div>
-                    <div className="metric-label">Development time</div>
-                  </div>
-                  <div className="problem-metric">
-                    <div className="metric-value red">0%</div>
-                    <div className="metric-label">Risk tolerance</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="vision-right">
-              <div className="vision-sticky">
-                <span className="vision-label">Our Solution</span>
-                <h2>Flip the<br />cost curve</h2>
-                <div className="solution-metrics">
-                  <div className="solution-metric">
-                    <div className="metric-value cyan">$9K–$67K</div>
-                    <div className="metric-label">Training cost</div>
-                  </div>
-                  <div className="solution-metric">
-                    <div className="metric-value cyan">Days</div>
-                    <div className="metric-label">Iteration speed</div>
-                  </div>
-                  <div className="solution-metric">
-                    <div className="metric-value cyan">100%</div>
-                    <div className="metric-label">Creative freedom</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Approach */}
+        {/* Approach */}
+        <section id="approach">
           <div className="approach-section">
             <div className="approach-bg-layer layer-1"></div>
             <div className="approach-bg-layer layer-2"></div>
