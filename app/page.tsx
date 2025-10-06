@@ -246,20 +246,6 @@ export default function Home() {
           });
         });
         
-        // Stats
-        gsap.utils.toArray('.stat').forEach((stat: any, i: number) => {
-          gsap.to(stat, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: i * 0.15,
-            scrollTrigger: {
-              trigger: stat,
-              start: 'top 85%'
-            }
-          });
-        });
-        
         // Anamnesis parallax
         gsap.to('.anamnesis-visual', {
           y: -50,
@@ -390,220 +376,150 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Pipeline Visualization */}
-          <div className="pipeline-container">
-            <h3 className="pipeline-title">The Ewilan Pipeline</h3>
-            <div className="pipeline-steps">
-              <div className="pipeline-step">
-                <div className="step-number">01</div>
-                <div className="step-icon">📐</div>
-                <div className="step-name">Generation Spec</div>
-                <div className="step-desc">Visual anchors, UI mockups, action prompts</div>
+          {/* Approach */}
+          <div className="approach-section">
+            <div className="approach-bg-layer layer-1"></div>
+            <div className="approach-bg-layer layer-2"></div>
+            <div className="approach-bg-layer layer-3"></div>
+            
+            <div className="approach-content">
+              <div className="approach-label">How We Do It</div>
+              <h3 className="approach-title">
+                <span className="approach-word">Proprietary</span>{' '}
+                <span className="approach-word">AI</span>{' '}
+                <span className="approach-word">pipeline</span>
+              </h3>
+              
+              <div className="approach-grid">
+                <div className="approach-pillar">
+                  <div className="pillar-icon">🎯</div>
+                  <h4>Vision to Reality</h4>
+                  <p>Creative concept becomes playable prototype in days</p>
+                </div>
+                
+                <div className="approach-pillar">
+                  <div className="pillar-icon">⚙️</div>
+                  <h4>Local Inference</h4>
+                  <p>Consumer hardware. No cloud. No compromise.</p>
+                </div>
+                
+                <div className="approach-pillar">
+                  <div className="pillar-icon">🔒</div>
+                  <h4>Your IP, Protected</h4>
+                  <p>Proprietary models. Competitive advantage maintained.</p>
+                </div>
               </div>
-              <div className="pipeline-arrow">→</div>
-              <div className="pipeline-step">
-                <div className="step-number">02</div>
-                <div className="step-icon">🎬</div>
-                <div className="step-name">Video Generation</div>
-                <div className="step-desc">100 hrs synthetic gameplay via Veo3</div>
-              </div>
-              <div className="pipeline-arrow">→</div>
-              <div className="pipeline-step">
-                <div className="step-number">03</div>
-                <div className="step-icon">⚙️</div>
-                <div className="step-name">Preprocessing</div>
-                <div className="step-desc">Low-res dynamics + high-res targets</div>
-              </div>
-              <div className="pipeline-arrow">→</div>
-              <div className="pipeline-step">
-                <div className="step-number">04</div>
-                <div className="step-icon">🧠</div>
-                <div className="step-name">World Model</div>
-                <div className="step-desc">128×128 physics & logic engine</div>
-              </div>
-              <div className="pipeline-arrow">→</div>
-              <div className="pipeline-step">
-                <div className="step-number">05</div>
-                <div className="step-icon">🎨</div>
-                <div className="step-name">Upscaler</div>
-                <div className="step-desc">Low-res → 1080p rendering</div>
-              </div>
-              <div className="pipeline-arrow">→</div>
-              <div className="pipeline-step">
-                <div className="step-number">06</div>
-                <div className="step-icon">🚀</div>
-                <div className="step-name">Deployment</div>
-                <div className="step-desc">RTX 3070+, 30+ FPS, local</div>
+              
+              <div className="approach-statement">
+                <p className="statement-text">
+                  We don't reveal the recipe.<br />
+                  <span className="statement-highlight">We prove it works.</span>
+                </p>
               </div>
             </div>
           </div>
         </section>
         
-        {/* Technology - Horizontal Scroll */}
+        {/* What We Enable */}
         <section id="technology">
           <div className="section-content">
             <div className="tech-header">
-              <span className="tech-label">Runtime Architecture</span>
-              <h2 className="section-title">Four models<br />working in concert</h2>
-              <p className="tech-subtitle">Real-time inference on your PC. 8–12GB VRAM. 30+ FPS.</p>
+              <span className="tech-label">Capabilities</span>
+              <h2 className="section-title">What becomes<br />possible</h2>
+              <p className="tech-subtitle">AI-native games running locally on consumer hardware. The future, playable today.</p>
             </div>
             
             <div className="tech-scroll-container">
-              <div className="tech-scroll">
-                <div className="tech-model-card">
-                  <div className="model-header">
-                    <span className="model-icon">🧠</span>
-                    <span className="model-badge">Core</span>
-                  </div>
-                  <h3>The Engine</h3>
-                  <p className="model-tagline">World Model</p>
-                  <p className="model-description">
-                    The heart of the experience. Takes player actions and recent history, 
-                    generates the next low-resolution frame at 128×128. Masters physics, 
-                    logic, and core interactions. Understands <em>what happens next</em>.
+              <div className="tech-scroll capabilities-scroll">
+                <div className="capability-card-large">
+                  <div className="capability-number">01</div>
+                  <div className="capability-icon-large">⚡</div>
+                  <h3>Rapid Iteration</h3>
+                  <p className="capability-tagline">Days, not months</p>
+                  <p className="capability-description">
+                    Go from concept to playable prototype in days. Test radical ideas without burning months of dev time or six-figure budgets. Fail fast, learn faster.
                   </p>
-                  <div className="model-specs">
-                    <div className="spec-item">
-                      <span className="spec-label">Output</span>
-                      <span className="spec-value">128×128 @ 30fps</span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Role</span>
-                      <span className="spec-value">Physics & Logic</span>
-                    </div>
+                  <div className="capability-stat">
+                    <span className="stat-highlight">10x</span>
+                    <span className="stat-label-small">Faster prototyping</span>
                   </div>
                 </div>
                 
-                <div className="tech-model-card">
-                  <div className="model-header">
-                    <span className="model-icon">🎨</span>
-                    <span className="model-badge">Visual</span>
-                  </div>
-                  <h3>The Lens</h3>
-                  <p className="model-tagline">Upscaler Model</p>
-                  <p className="model-description">
-                    The artist. Takes coarse frames from the World Model and renders them 
-                    into high-fidelity 1080p images. Responsible for the final look and feel—from 
-                    watercolor effects to photorealistic textures. Makes the world <em>look right</em>.
+                <div className="capability-card-large">
+                  <div className="capability-number">02</div>
+                  <div className="capability-icon-large">🎨</div>
+                  <h3>Infinite Flexibility</h3>
+                  <p className="capability-tagline">Creativity unleashed</p>
+                  <p className="capability-description">
+                    Change art styles, mechanics, entire worlds with minimal friction. Watercolor to pixel art to photorealism. The AI adapts. Your creativity leads.
                   </p>
-                  <div className="model-specs">
-                    <div className="spec-item">
-                      <span className="spec-label">Output</span>
-                      <span className="spec-value">1080p visual</span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Role</span>
-                      <span className="spec-value">Aesthetic rendering</span>
-                    </div>
+                  <div className="capability-stat">
+                    <span className="stat-highlight">∞</span>
+                    <span className="stat-label-small">Style variations</span>
                   </div>
                 </div>
                 
-                <div className="tech-model-card">
-                  <div className="model-header">
-                    <span className="model-icon">👁️</span>
-                    <span className="model-badge">Data</span>
-                  </div>
-                  <h3>The Observer</h3>
-                  <p className="model-tagline">Computer Vision Model</p>
-                  <p className="model-description">
-                    The interface layer. Analyzes generated frames to extract structured data. 
-                    Reads in-world UI to update game state, identifies entities for targeting, 
-                    provides accessibility info. Translates pixels back into <em>data</em>.
+                <div className="capability-card-large">
+                  <div className="capability-number">03</div>
+                  <div className="capability-icon-large">💻</div>
+                  <h3>Local Performance</h3>
+                  <p className="capability-tagline">No cloud required</p>
+                  <p className="capability-description">
+                    30+ FPS on consumer GPUs. RTX 3070 and up. No cloud dependency. No latency. No subscription fees. Players own the experience, truly.
                   </p>
-                  <div className="model-specs">
-                    <div className="spec-item">
-                      <span className="spec-label">Output</span>
-                      <span className="spec-value">Structured data</span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Role</span>
-                      <span className="spec-value">State extraction</span>
-                    </div>
+                  <div className="capability-stat">
+                    <span className="stat-highlight">30+</span>
+                    <span className="stat-label-small">FPS guaranteed</span>
                   </div>
                 </div>
                 
-                <div className="tech-model-card">
-                  <div className="model-header">
-                    <span className="model-icon">📖</span>
-                    <span className="model-badge">Narrative</span>
-                  </div>
-                  <h3>The Director</h3>
-                  <p className="model-tagline">Vision-Language Model</p>
-                  <p className="model-description">
-                    The storyteller. Operates on longer timescales, analyzing seconds or minutes 
-                    of gameplay. Interprets player patterns, struggles, triumphs to generate narrative 
-                    seeds and dynamic objectives. Understands what the gameplay <em>means</em>.
+                <div className="capability-card-large">
+                  <div className="capability-number">04</div>
+                  <div className="capability-icon-large">🧠</div>
+                  <h3>Emergent Behavior</h3>
+                  <p className="capability-tagline">Living worlds</p>
+                  <p className="capability-description">
+                    Worlds that respond and adapt. NPCs that remember your actions. Stories that emerge from play patterns, not pre-written scripts. Every playthrough unique.
                   </p>
-                  <div className="model-specs">
-                    <div className="spec-item">
-                      <span className="spec-label">Output</span>
-                      <span className="spec-value">Narrative events</span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Role</span>
-                      <span className="spec-value">Emergent story</span>
-                    </div>
+                  <div className="capability-stat">
+                    <span className="stat-highlight">100%</span>
+                    <span className="stat-label-small">Emergent gameplay</span>
+                  </div>
+                </div>
+                
+                <div className="capability-card-large">
+                  <div className="capability-number">05</div>
+                  <div className="capability-icon-large">💰</div>
+                  <h3>Economic Viability</h3>
+                  <p className="capability-tagline">Risk becomes manageable</p>
+                  <p className="capability-description">
+                    $9K–$67K training costs vs. $500K+ traditional prototypes. Makes experimental titles financially feasible. Indie studios can compete with AAA innovation.
+                  </p>
+                  <div className="capability-stat">
+                    <span className="stat-highlight">90%</span>
+                    <span className="stat-label-small">Cost reduction</span>
+                  </div>
+                </div>
+                
+                <div className="capability-card-large">
+                  <div className="capability-number">06</div>
+                  <div className="capability-icon-large">🚀</div>
+                  <h3>Ship Faster</h3>
+                  <p className="capability-tagline">Market speed matters</p>
+                  <p className="capability-description">
+                    Compress production timelines without sacrificing quality. From concept to Steam page in weeks. Iterate based on real player feedback, not assumptions.
+                  </p>
+                  <div className="capability-stat">
+                    <span className="stat-highlight">Weeks</span>
+                    <span className="stat-label-small">To launch</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Per-Frame Flow Diagram */}
-            <div className="flow-diagram">
-              <h3 className="flow-title">Per-Frame Pipeline</h3>
-              <div className="flow-steps">
-                <div className="flow-step">
-                  <div className="flow-icon">⌨️</div>
-                  <div className="flow-label">Player Input</div>
-                </div>
-                <div className="flow-arrow">→</div>
-                <div className="flow-step highlight">
-                  <div className="flow-icon">🧠</div>
-                  <div className="flow-label">Engine predicts<br />128×128 frame</div>
-                </div>
-                <div className="flow-arrow">→</div>
-                <div className="flow-step highlight">
-                  <div className="flow-icon">🎨</div>
-                  <div className="flow-label">Lens renders<br />1080p frame</div>
-                </div>
-                <div className="flow-arrow">→</div>
-                <div className="flow-step">
-                  <div className="flow-icon">🖥️</div>
-                  <div className="flow-label">Display</div>
-                </div>
-              </div>
-              <div className="flow-parallel">
-                <div className="parallel-label">In parallel:</div>
-                <div className="parallel-items">
-                  <div className="parallel-item">
-                    <span className="parallel-icon">👁️</span>
-                    <span>Observer extracts data</span>
-                  </div>
-                  <div className="parallel-item">
-                    <span className="parallel-icon">📖</span>
-                    <span>Director reviews gameplay</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="stats">
-              <div className="stat">
-                <div className="stat-number">$9K–$67K</div>
-                <div className="stat-label">Training Cost</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">30+ FPS</div>
-                <div className="stat-label">Performance</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">8–12GB</div>
-                <div className="stat-label">VRAM Budget</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">100 hrs</div>
-                <div className="stat-label">Training Data</div>
-              </div>
+            <div className="scroll-hint">
+              <span className="scroll-hint-text">Scroll to explore</span>
+              <span className="scroll-hint-arrow">→</span>
             </div>
           </div>
         </section>

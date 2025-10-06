@@ -346,14 +346,134 @@ nav.scrolled {
     text-transform: uppercase;
 }
 
-/* Pipeline Visualization */
-.pipeline-container {
+/* Approach Section with Parallax */
+.approach-section {
+    position: relative;
     max-width: 1600px;
     margin: 8rem auto 0;
-    padding: 6rem 4rem;
-    background: rgba(26, 26, 26, 0.4);
+    padding: 8rem 4rem;
+    overflow: hidden;
+    background: rgba(10, 10, 10, 0.8);
     border: 1px solid rgba(0, 255, 255, 0.1);
-    border-radius: 4px;
+}
+
+.approach-bg-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.layer-1 {
+    background: radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.15) 0%, transparent 50%);
+}
+
+.layer-2 {
+    background: radial-gradient(circle at 80% 30%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
+}
+
+.layer-3 {
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 255, 255, 0.05) 50%, transparent 100%);
+}
+
+.approach-content {
+    position: relative;
+    z-index: 1;
+}
+
+.approach-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+}
+
+.approach-title {
+    font-family: 'Space Grotesk', monospace;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
+    line-height: 1.2;
+}
+
+.approach-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.approach-pillar {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(26, 26, 26, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.approach-pillar:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    background: rgba(26, 26, 26, 0.6);
+}
+
+.pillar-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.3));
+}
+
+.approach-pillar h4 {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.approach-pillar p {
+    color: var(--text-dim);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.approach-statement {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.05) 0%, 
+        rgba(255, 20, 147, 0.05) 100%);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.statement-text {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.statement-highlight {
+    color: var(--primary);
+    font-weight: 700;
+    font-family: 'Space Grotesk', monospace;
 }
 
 .pipeline-title {
@@ -419,6 +539,139 @@ nav.scrolled {
     font-size: 2rem;
     color: var(--primary);
     flex-shrink: 0;
+}
+
+/* Capabilities Horizontal Scroll */
+.capability-card-large {
+    min-width: 500px;
+    max-width: 500px;
+    scroll-snap-align: center;
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.capability-card-large::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.03) 0%, 
+        rgba(255, 20, 147, 0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.capability-card-large:hover {
+    transform: scale(1.03);
+    border-color: var(--primary);
+    background: rgba(26, 26, 26, 0.8);
+}
+
+.capability-card-large:hover::before {
+    opacity: 1;
+}
+
+.capability-number {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.capability-icon-large {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.3));
+}
+
+.capability-card-large h3 {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: white;
+    font-weight: 700;
+}
+
+.capability-tagline {
+    color: var(--primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.capability-description {
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+.capability-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-highlight {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.stat-label-small {
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.scroll-hint {
+    text-align: center;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0.6;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.scroll-hint-text {
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.scroll-hint-arrow {
+    font-size: 1.5rem;
+    color: var(--primary);
 }
 
 /* Technology Section - Horizontal Scroll */
