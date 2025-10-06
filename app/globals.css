@@ -106,11 +106,11 @@ nav.scrolled {
 
 .logo {
     font-family: 'Space Grotesk', monospace;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: white;
     text-decoration: none;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.05em;
     transition: color 0.3s;
 }
 
@@ -162,22 +162,26 @@ nav.scrolled {
     justify-content: center;
     padding: 8rem 4rem 4rem;
     position: relative;
+    overflow: visible;
 }
 
 .hero-content {
     max-width: 1600px;
     width: 100%;
     margin: 0 auto;
+    overflow: visible;
 }
 
 .hero h1 {
     font-family: 'Space Grotesk', monospace;
     font-size: clamp(3rem, 8vw, 8rem);
     font-weight: 700;
-    line-height: 0.95;
+    line-height: 1.15;
     letter-spacing: -0.03em;
     margin-bottom: 2rem;
+    padding-bottom: 0.2em;
     color: white;
+    overflow: visible;
 }
 
 .hero .word {
