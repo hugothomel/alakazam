@@ -37,7 +37,7 @@ export default function Home() {
         animateCursor();
         
         // Hover effect for interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, .tech-card');
+        const interactiveElements = document.querySelectorAll('a, button, .capability-card-large, .approach-pillar');
         interactiveElements.forEach(el => {
           el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
           el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
@@ -169,65 +169,136 @@ export default function Home() {
           });
         });
         
-        // Pipeline steps animation
-        gsap.utils.toArray('.pipeline-step').forEach((step: any, i: number) => {
-          gsap.from(step, {
-            opacity: 0,
-            y: 30,
-            duration: 0.6,
-            delay: i * 0.1,
+        // Approach section - Parallax & Animations
+        // Parallax background layers
+        gsap.to('.layer-1', {
+          y: -80,
+          scrollTrigger: {
+            trigger: '.approach-section',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1
+          }
+        });
+        
+        gsap.to('.layer-2', {
+          y: -120,
+          x: 50,
+          scrollTrigger: {
+            trigger: '.approach-section',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.5
+          }
+        });
+        
+        gsap.to('.layer-3', {
+          y: -60,
+          scrollTrigger: {
+            trigger: '.approach-section',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.8
+          }
+        });
+        
+        // Approach label
+        gsap.to('.approach-label', {
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: '.approach-section',
+            start: 'top 70%'
+          }
+        });
+        
+        // Approach title words
+        gsap.to('.approach-word', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.approach-title',
+            start: 'top 75%'
+          }
+        });
+        
+        // Approach pillars
+        gsap.utils.toArray('.approach-pillar').forEach((pillar: any, i: number) => {
+          gsap.to(pillar, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: i * 0.2,
             scrollTrigger: {
-              trigger: step,
-              start: 'top 85%'
+              trigger: pillar,
+              start: 'top 80%'
             }
           });
         });
         
-        // Tech model cards scroll hint
-        const techScroll = document.querySelector('.tech-scroll');
-        if (techScroll) {
+        // Approach statement
+        gsap.to('.approach-statement', {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.approach-statement',
+            start: 'top 80%'
+          }
+        });
+        
+        // Capability cards horizontal scroll animation
+        const capabilitiesScroll = document.querySelector('.capabilities-scroll');
+        if (capabilitiesScroll) {
+          // Initial hint animation
           ScrollTrigger.create({
             trigger: '.tech-scroll-container',
             start: 'top 60%',
             once: true,
             onEnter: () => {
-              gsap.to(techScroll, {
-                scrollLeft: 200,
-                duration: 1,
+              gsap.to(capabilitiesScroll, {
+                scrollLeft: 250,
+                duration: 1.2,
                 ease: 'power2.out'
               });
-              gsap.to(techScroll, {
+              gsap.to(capabilitiesScroll, {
                 scrollLeft: 0,
-                duration: 1,
-                delay: 1.5,
+                duration: 1.2,
+                delay: 1.8,
                 ease: 'power2.inOut'
               });
             }
           });
+          
+          // Animate cards on scroll
+          gsap.utils.toArray('.capability-card-large').forEach((card: any, i: number) => {
+            gsap.from(card, {
+              opacity: 0,
+              scale: 0.9,
+              y: 50,
+              duration: 0.8,
+              delay: i * 0.15,
+              scrollTrigger: {
+                trigger: '.capabilities-scroll',
+                start: 'top 70%'
+              }
+            });
+          });
         }
         
-        // Flow steps animation
-        gsap.utils.toArray('.flow-step').forEach((step: any, i: number) => {
-          gsap.from(step, {
-            opacity: 0,
-            scale: 0.8,
-            duration: 0.5,
-            delay: i * 0.15,
-            scrollTrigger: {
-              trigger: '.flow-diagram',
-              start: 'top 70%'
-            }
-          });
-        });
-        
-        gsap.from('.flow-parallel', {
+        // Scroll hint animation
+        gsap.from('.scroll-hint', {
           opacity: 0,
           y: 20,
-          duration: 0.8,
-          delay: 1,
+          duration: 1,
+          delay: 2.5,
           scrollTrigger: {
-            trigger: '.flow-parallel',
-            start: 'top 80%'
+            trigger: '.scroll-hint',
+            start: 'top 90%'
           }
         });
         
