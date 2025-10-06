@@ -1240,18 +1240,60 @@ footer p {
         padding: 2rem;
     }
     
-    .pipeline-container {
-        padding: 3rem 2rem;
+    .approach-section {
+        padding: 4rem 2rem;
+        margin-top: 4rem;
+    }
+    
+    .approach-title {
+        font-size: 2rem;
+    }
+    
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .approach-pillar {
+        padding: 2rem 1.5rem;
+    }
+    
+    .pillar-icon {
+        font-size: 2.5rem;
+    }
+    
+    .approach-pillar h4 {
+        font-size: 1.25rem;
+    }
+    
+    .approach-statement {
+        padding: 2rem 1.5rem;
+    }
+    
+    .statement-text {
+        font-size: 1.125rem;
     }
     
     .tech-scroll {
         padding: 0 2rem;
     }
     
-    .tech-model-card {
-        min-width: 300px;
-        max-width: 300px;
-        padding: 2rem;
+    .capability-card-large {
+        min-width: 320px;
+        max-width: 320px;
+        padding: 2.5rem;
+    }
+    
+    .capability-icon-large {
+        font-size: 3rem;
+    }
+    
+    .capability-card-large h3 {
+        font-size: 1.5rem;
+    }
+    
+    .stat-highlight {
+        font-size: 2rem;
     }
     
     .flow-diagram {
