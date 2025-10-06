@@ -56,27 +56,27 @@ export default function Home() {
         
         // Create particle system
         const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCount = 2000;
+        const particlesCount = 12000;
         const posArray = new Float32Array(particlesCount * 3);
         
         for(let i = 0; i < particlesCount * 3; i++) {
-          posArray[i] = (Math.random() - 0.5) * 100;
+          posArray[i] = (Math.random() - 0.5) * 200;
         }
         
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
         
         const particlesMaterial = new THREE.PointsMaterial({
-          size: 0.05,
+          size: 0.18,
           color: 0x00ffff,
           transparent: true,
-          opacity: 0.6,
+          opacity: 0.9,
           blending: THREE.AdditiveBlending
         });
         
         const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
         scene.add(particlesMesh);
         
-        camera.position.z = 30;
+        camera.position.z = 25;
         
         // Mouse movement effect
         let mouseXThree = 0, mouseYThree = 0;
@@ -90,12 +90,12 @@ export default function Home() {
         const animate = () => {
           requestAnimationFrame(animate);
           
-          particlesMesh.rotation.x += 0.0003;
-          particlesMesh.rotation.y += 0.0005;
+          particlesMesh.rotation.x += 0.0015;
+          particlesMesh.rotation.y += 0.002;
           
           // React to mouse
-          particlesMesh.rotation.x += mouseYThree * 0.00005;
-          particlesMesh.rotation.y += mouseXThree * 0.00005;
+          particlesMesh.rotation.x += mouseYThree * 0.0005;
+          particlesMesh.rotation.y += mouseXThree * 0.0005;
           
           renderer.render(scene, camera);
         };
