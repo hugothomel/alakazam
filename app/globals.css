@@ -98,7 +98,6 @@ nav.scrolled {
 }
 
 .nav-content {
-    max-width: 1600px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -168,6 +167,7 @@ nav.scrolled {
 .hero-content {
     max-width: 1600px;
     width: 100%;
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -272,7 +272,6 @@ nav.scrolled {
 /* Approach Section with Parallax */
 .approach-section {
     position: relative;
-    max-width: 1600px;
     margin: 8rem auto 0;
     padding: 8rem 4rem;
     overflow: hidden;
@@ -766,7 +765,6 @@ nav.scrolled {
 
 /* Flow Diagram */
 .flow-diagram {
-    max-width: 1400px;
     margin: 6rem auto;
     padding: 4rem;
     background: rgba(10, 10, 10, 0.4);
@@ -861,7 +859,6 @@ section {
 }
 
 .section-content {
-    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -1034,7 +1031,6 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 4rem;
-    max-width: 1200px;
     margin: 6rem auto 0;
 }
 
