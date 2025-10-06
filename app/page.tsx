@@ -424,7 +424,7 @@ export default function Home() {
               
               <div className="approach-statement">
                 <p className="statement-text">
-                  We don't reveal the recipe.<br />
+                  We don&apos;t reveal the recipe.<br />
                   <span className="statement-highlight">We prove it works.</span>
                 </p>
               </div>
