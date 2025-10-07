@@ -179,11 +179,12 @@ nav.scrolled {
     width: 100%;
     margin: 0 auto;
     overflow: visible;
+    text-align: center;
 }
 
 .hero h1 {
     font-family: 'Space Grotesk', monospace;
-    font-size: clamp(3rem, 8vw, 8rem);
+    font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.03em;
@@ -210,8 +211,8 @@ nav.scrolled {
     font-size: clamp(1rem, 2vw, 1.5rem);
     color: var(--text-dim);
     max-width: 600px;
+    margin: 0 auto 3rem;
     line-height: 1.6;
-    margin-bottom: 3rem;
     opacity: 0;
 }
 
