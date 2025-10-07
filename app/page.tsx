@@ -541,7 +541,16 @@ export default function Home() {
           <div className="section-content">
             <div className="anamnesis-layout">
               <div className="anamnesis-visual">
-                🎨
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="anamnesis-video"
+                >
+                  <source src="/WhatsApp Video 2025-09-08 at 21.16.42.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
               <div className="anamnesis-info">
                 <div className="anamnesis-tagline">Our Flagship Game</div>

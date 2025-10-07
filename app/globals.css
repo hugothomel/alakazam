@@ -980,6 +980,17 @@ section {
     overflow: hidden;
 }
 
+.anamnesis-video {
+    width: 115%;
+    height: 115%;
+    object-fit: cover;
+    object-position: center top;
+    position: absolute;
+    top: -7.5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .anamnesis-visual::before {
     content: '';
     position: absolute;
