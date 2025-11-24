@@ -575,7 +575,7 @@ export default function Home() {
         {/* Contact */}
         <section id="contact" className="contact">
           <h2>Ready to break<br />the mold?</h2>
-          <a href="mailto:contact@alakazam.studio" className="contact-email">contact@alakazam.studio</a>
+          <a href="mailto:contact@alakazam.gg" className="contact-email">contact@alakazam.gg</a>
         </section>
         
         {/* Footer */}
