@@ -19,23 +19,22 @@ export default function Home() {
       if (cursor) {
         let mouseX = 0, mouseY = 0;
         let cursorX = 0, cursorY = 0;
-        
+
         const handleMouseMove = (e: MouseEvent) => {
           mouseX = e.clientX;
           mouseY = e.clientY;
         };
-        
+
         document.addEventListener('mousemove', handleMouseMove);
-        
+
         const animateCursor = () => {
-          cursorX += (mouseX - cursorX) * 0.1;
-          cursorY += (mouseY - cursorY) * 0.1;
-          cursor.style.left = cursorX + 'px';
-          cursor.style.top = cursorY + 'px';
+          cursorX += (mouseX - cursorX) * 1;
+          cursorY += (mouseY - cursorY) * 1;
+          cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
           requestAnimationFrame(animateCursor);
         };
         animateCursor();
-        
+
         // Hover effect for interactive elements
         const interactiveElements = document.querySelectorAll('a, button, .capability-card-large, .approach-pillar');
         interactiveElements.forEach(el => {
@@ -50,21 +49,21 @@ export default function Home() {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
+
         renderer.setSize(window.innerWidth, window.innerHeight);
         canvasContainerRef.current.appendChild(renderer.domElement);
-        
+
         // Create particle system
         const particlesGeometry = new THREE.BufferGeometry();
         const particlesCount = 12000;
         const posArray = new Float32Array(particlesCount * 3);
-        
-        for(let i = 0; i < particlesCount * 3; i++) {
+
+        for (let i = 0; i < particlesCount * 3; i++) {
           posArray[i] = (Math.random() - 0.5) * 200;
         }
-        
+
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        
+
         const particlesMaterial = new THREE.PointsMaterial({
           size: 0.18,
           color: 0x00ffff,
@@ -72,12 +71,12 @@ export default function Home() {
           opacity: 0.9,
           blending: THREE.AdditiveBlending
         });
-        
+
         const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
         scene.add(particlesMesh);
-        
+
         camera.position.z = 25;
-        
+
         // Mouse movement effect
         let mouseXThree = 0, mouseYThree = 0;
         const handleMouseMoveThree = (e: MouseEvent) => {
@@ -85,22 +84,22 @@ export default function Home() {
           mouseYThree = -(e.clientY / window.innerHeight) * 2 + 1;
         };
         document.addEventListener('mousemove', handleMouseMoveThree);
-        
+
         // Animation loop
         const animate = () => {
           requestAnimationFrame(animate);
-          
+
           particlesMesh.rotation.x += 0.0015;
           particlesMesh.rotation.y += 0.002;
-          
+
           // React to mouse
           particlesMesh.rotation.x += mouseYThree * 0.0005;
           particlesMesh.rotation.y += mouseXThree * 0.0005;
-          
+
           renderer.render(scene, camera);
         };
         animate();
-        
+
         // Handle window resize
         const handleResize = () => {
           camera.aspect = window.innerWidth / window.innerHeight;
@@ -114,16 +113,16 @@ export default function Home() {
       if ((window as any).gsap && (window as any).ScrollTrigger) {
         const gsap = (window as any).gsap;
         const ScrollTrigger = (window as any).ScrollTrigger;
-        
+
         gsap.registerPlugin(ScrollTrigger);
-        
+
         // Nav shrink on scroll
         ScrollTrigger.create({
           start: 'top -80',
           end: 99999,
           toggleClass: { className: 'scrolled', targets: '#nav' }
         });
-        
+
         // Hero animations
         gsap.to('.hero .word', {
           opacity: 1,
@@ -133,29 +132,29 @@ export default function Home() {
           ease: 'power3.out',
           delay: 0.5
         });
-        
+
         gsap.to('.hero-subtitle', {
           opacity: 1,
           duration: 1,
           delay: 1.5,
           ease: 'power3.out'
         });
-        
+
         gsap.to('.hero-cta', {
           opacity: 1,
           duration: 1,
           delay: 2,
           ease: 'power3.out'
         });
-        
+
         gsap.to('.scroll-indicator', {
           opacity: 1,
           duration: 1,
           delay: 2.5,
           ease: 'power3.out'
         });
-        
-        
+
+
         // Approach section - Parallax & Animations
         // Parallax background layers
         gsap.to('.layer-1', {
@@ -167,7 +166,7 @@ export default function Home() {
             scrub: 1
           }
         });
-        
+
         gsap.to('.layer-2', {
           y: -120,
           x: 50,
@@ -178,7 +177,7 @@ export default function Home() {
             scrub: 1.5
           }
         });
-        
+
         gsap.to('.layer-3', {
           y: -60,
           scrollTrigger: {
@@ -188,7 +187,7 @@ export default function Home() {
             scrub: 0.8
           }
         });
-        
+
         // Approach label
         gsap.to('.approach-label', {
           opacity: 1,
@@ -198,7 +197,7 @@ export default function Home() {
             start: 'top 70%'
           }
         });
-        
+
         // Approach title words
         gsap.to('.approach-word', {
           opacity: 1,
@@ -211,7 +210,7 @@ export default function Home() {
             start: 'top 75%'
           }
         });
-        
+
         // Approach pillars
         gsap.utils.toArray('.approach-pillar').forEach((pillar: any, i: number) => {
           gsap.to(pillar, {
@@ -225,7 +224,7 @@ export default function Home() {
             }
           });
         });
-        
+
         // Approach statement
         gsap.to('.approach-statement', {
           opacity: 1,
@@ -237,7 +236,7 @@ export default function Home() {
             start: 'top 80%'
           }
         });
-        
+
         // Capability cards horizontal scroll animation
         const capabilitiesScroll = document.querySelector('.capabilities-scroll');
         if (capabilitiesScroll) {
@@ -260,7 +259,7 @@ export default function Home() {
               });
             }
           });
-          
+
           // Animate cards on scroll
           gsap.utils.toArray('.capability-card-large').forEach((card: any, i: number) => {
             gsap.from(card, {
@@ -276,7 +275,7 @@ export default function Home() {
             });
           });
         }
-        
+
         // Scroll hint animation
         gsap.from('.scroll-hint', {
           opacity: 0,
@@ -288,7 +287,7 @@ export default function Home() {
             start: 'top 90%'
           }
         });
-        
+
         // Section titles
         gsap.utils.toArray('.section-title').forEach((title: any) => {
           gsap.to(title, {
@@ -303,7 +302,7 @@ export default function Home() {
             }
           });
         });
-        
+
         // Anamnesis parallax
         gsap.to('.anamnesis-visual', {
           y: -50,
@@ -324,19 +323,19 @@ export default function Home() {
 
   return (
     <>
-      <Script 
+      <Script
         src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
         onLoad={() => {
           scriptsLoaded.current.three = true;
         }}
       />
-      <Script 
+      <Script
         src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
         onLoad={() => {
           scriptsLoaded.current.gsap = true;
         }}
       />
-      <Script 
+      <Script
         src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
         onLoad={() => {
           scriptsLoaded.current.scrollTrigger = true;
@@ -345,23 +344,23 @@ export default function Home() {
 
       {/* Custom Cursor */}
       <div className="cursor"></div>
-      
+
       {/* 3D Background */}
       <div id="canvas-container" ref={canvasContainerRef}></div>
-      
+
       <div className="content-wrapper">
         {/* Navigation */}
         <nav id="nav">
           <div className="nav-content">
             <a href="#" className="logo">ALAKAZAM</a>
-                <ul className="nav-links">
+            <ul className="nav-links">
               <li><a href="#technology">Technology</a></li>
               <li><a href="#anamnesis">Anamnesis</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
         </nav>
-        
+
         {/* Hero */}
         <section className="hero">
           <div className="hero-content">
@@ -386,14 +385,14 @@ export default function Home() {
             <span></span>
           </div>
         </section>
-        
+
         {/* Approach */}
         <section id="approach">
           <div className="approach-section">
             <div className="approach-bg-layer layer-1"></div>
             <div className="approach-bg-layer layer-2"></div>
             <div className="approach-bg-layer layer-3"></div>
-            
+
             <div className="approach-content">
               <div className="approach-label">How We Do It</div>
               <h3 className="approach-title">
@@ -401,27 +400,27 @@ export default function Home() {
                 <span className="approach-word">AI</span>{' '}
                 <span className="approach-word">pipeline</span>
               </h3>
-              
+
               <div className="approach-grid">
                 <div className="approach-pillar">
                   <div className="pillar-icon">🎯</div>
                   <h4>Vision to Reality</h4>
                   <p>Creative concept becomes playable prototype in days</p>
                 </div>
-                
+
                 <div className="approach-pillar">
                   <div className="pillar-icon">⚙️</div>
                   <h4>Local Inference</h4>
                   <p>Consumer hardware. No cloud. No compromise.</p>
                 </div>
-                
+
                 <div className="approach-pillar">
                   <div className="pillar-icon">🔒</div>
                   <h4>Your IP, Protected</h4>
                   <p>Proprietary models. Competitive advantage maintained.</p>
                 </div>
               </div>
-              
+
               <div className="approach-statement">
                 <p className="statement-text">
                   We don&apos;t reveal the recipe.<br />
@@ -431,7 +430,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         {/* What We Enable */}
         <section id="technology">
           <div className="section-content">
@@ -440,7 +439,7 @@ export default function Home() {
               <h2 className="section-title">What becomes<br />possible</h2>
               <p className="tech-subtitle">AI-native games running locally on consumer hardware. The future, playable today.</p>
             </div>
-            
+
             <div className="tech-scroll-container">
               <div className="tech-scroll capabilities-scroll">
                 <div className="capability-card-large">
@@ -456,7 +455,7 @@ export default function Home() {
                     <span className="stat-label-small">Faster prototyping</span>
                   </div>
                 </div>
-                
+
                 <div className="capability-card-large">
                   <div className="capability-number">02</div>
                   <div className="capability-icon-large">🎨</div>
@@ -470,7 +469,7 @@ export default function Home() {
                     <span className="stat-label-small">Style variations</span>
                   </div>
                 </div>
-                
+
                 <div className="capability-card-large">
                   <div className="capability-number">03</div>
                   <div className="capability-icon-large">💻</div>
@@ -484,7 +483,7 @@ export default function Home() {
                     <span className="stat-label-small">FPS guaranteed</span>
                   </div>
                 </div>
-                
+
                 <div className="capability-card-large">
                   <div className="capability-number">04</div>
                   <div className="capability-icon-large">🧠</div>
@@ -498,7 +497,7 @@ export default function Home() {
                     <span className="stat-label-small">Emergent gameplay</span>
                   </div>
                 </div>
-                
+
                 <div className="capability-card-large">
                   <div className="capability-number">05</div>
                   <div className="capability-icon-large">💰</div>
@@ -512,7 +511,7 @@ export default function Home() {
                     <span className="stat-label-small">Cost reduction</span>
                   </div>
                 </div>
-                
+
                 <div className="capability-card-large">
                   <div className="capability-number">06</div>
                   <div className="capability-icon-large">🚀</div>
@@ -528,23 +527,23 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div className="scroll-hint">
               <span className="scroll-hint-text">Scroll to explore</span>
               <span className="scroll-hint-arrow">→</span>
             </div>
           </div>
         </section>
-        
+
         {/* Anamnesis */}
         <section id="anamnesis" className="anamnesis">
           <div className="section-content">
             <div className="anamnesis-layout">
               <div className="anamnesis-visual">
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
+                <video
+                  autoPlay
+                  loop
+                  muted
                   playsInline
                   className="anamnesis-video"
                 >
@@ -556,8 +555,8 @@ export default function Home() {
                 <div className="anamnesis-tagline">Our Flagship Game</div>
                 <h2>Anamnesis</h2>
                 <p className="anamnesis-description">
-                  Navigate deteriorating memories as living watercolor paintings. 
-                  Each 60-second run explores as deeply as you dare—but stay too long, 
+                  Navigate deteriorating memories as living watercolor paintings.
+                  Each 60-second run explores as deeply as you dare—but stay too long,
                   and the memory consumes you.
                 </p>
                 <ul className="anamnesis-features">
@@ -571,13 +570,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         {/* Contact */}
         <section id="contact" className="contact">
           <h2>Ready to break<br />the mold?</h2>
           <a href="mailto:contact@alakazam.gg" className="contact-email">contact@alakazam.gg</a>
         </section>
-        
+
         {/* Footer */}
         <footer>
           <p>© 2025 Alakazam — Building the future of AI-native gaming</p>
