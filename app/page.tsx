@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
+import { Target, Cpu, Shield, Zap, Palette, Laptop, Brain, Coins, Rocket } from 'lucide-react';
 
 export default function Home() {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -375,7 +376,7 @@ export default function Home() {
               <span className="word gradient-text">creation</span>
             </h1>
             <p className="hero-subtitle">
-              World models based games running on consumer hardware—making radical experimentation economically viable.
+              World models based games running on consumer hardware. We make radical experimentation economically viable.
             </p>
             <div className="hero-cta">
               <a href="#anamnesis" className="btn-magnetic">Discover Anamnesis</a>
@@ -403,19 +404,25 @@ export default function Home() {
 
               <div className="approach-grid">
                 <div className="approach-pillar">
-                  <div className="pillar-icon">🎯</div>
+                  <div className="pillar-icon-wrapper">
+                    <Target className="pillar-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h4>Vision to Reality</h4>
                   <p>Creative concept becomes playable prototype in days</p>
                 </div>
 
                 <div className="approach-pillar">
-                  <div className="pillar-icon">⚙️</div>
+                  <div className="pillar-icon-wrapper">
+                    <Cpu className="pillar-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h4>Local Inference</h4>
                   <p>Consumer hardware. No cloud. No compromise.</p>
                 </div>
 
                 <div className="approach-pillar">
-                  <div className="pillar-icon">🔒</div>
+                  <div className="pillar-icon-wrapper">
+                    <Shield className="pillar-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h4>Your IP, Protected</h4>
                   <p>Proprietary models. Competitive advantage maintained.</p>
                 </div>
@@ -444,7 +451,9 @@ export default function Home() {
               <div className="tech-scroll capabilities-scroll">
                 <div className="capability-card-large">
                   <div className="capability-number">01</div>
-                  <div className="capability-icon-large">⚡</div>
+                  <div className="capability-icon-wrapper">
+                    <Zap className="capability-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h3>Rapid Iteration</h3>
                   <p className="capability-tagline">Days, not months</p>
                   <p className="capability-description">
@@ -458,7 +467,9 @@ export default function Home() {
 
                 <div className="capability-card-large">
                   <div className="capability-number">02</div>
-                  <div className="capability-icon-large">🎨</div>
+                  <div className="capability-icon-wrapper">
+                    <Palette className="capability-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h3>Infinite Flexibility</h3>
                   <p className="capability-tagline">Creativity unleashed</p>
                   <p className="capability-description">
@@ -472,7 +483,9 @@ export default function Home() {
 
                 <div className="capability-card-large">
                   <div className="capability-number">03</div>
-                  <div className="capability-icon-large">💻</div>
+                  <div className="capability-icon-wrapper">
+                    <Laptop className="capability-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h3>Local Performance</h3>
                   <p className="capability-tagline">No cloud required</p>
                   <p className="capability-description">
@@ -486,7 +499,9 @@ export default function Home() {
 
                 <div className="capability-card-large">
                   <div className="capability-number">04</div>
-                  <div className="capability-icon-large">🧠</div>
+                  <div className="capability-icon-wrapper">
+                    <Brain className="capability-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h3>Emergent Behavior</h3>
                   <p className="capability-tagline">Living worlds</p>
                   <p className="capability-description">
@@ -500,7 +515,9 @@ export default function Home() {
 
                 <div className="capability-card-large">
                   <div className="capability-number">05</div>
-                  <div className="capability-icon-large">💰</div>
+                  <div className="capability-icon-wrapper">
+                    <Coins className="capability-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h3>Economic Viability</h3>
                   <p className="capability-tagline">Risk becomes manageable</p>
                   <p className="capability-description">
@@ -514,7 +531,9 @@ export default function Home() {
 
                 <div className="capability-card-large">
                   <div className="capability-number">06</div>
-                  <div className="capability-icon-large">🚀</div>
+                  <div className="capability-icon-wrapper">
+                    <Rocket className="capability-icon-svg" strokeWidth={1.5} />
+                  </div>
                   <h3>Ship Faster</h3>
                   <p className="capability-tagline">Market speed matters</p>
                   <p className="capability-description">
